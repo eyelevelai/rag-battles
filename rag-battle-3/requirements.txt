@@ -1,0 +1,16 @@
+langchain
+langchain-community
+langchain-openai
+openai
+pinecone-client
+tiktoken
+llama-index
+torch
+transformers
+python-pptx
+Pillow
+docx2txt
+unstructured[all-docs]
+poppler-utils
+tesseract-ocr
+python-dotenv

@@ -1,0 +1,3 @@
+sudo yum install pip
+sudo yum install mesa-libGL
+sudo yum install poppler-utils
