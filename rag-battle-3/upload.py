@@ -1,19 +1,11 @@
 import multiprocessing, os, time, zipfile
 
 from dotenv import load_dotenv
-from tqdm import tqdm
-
-from langchain_community.document_loaders import DirectoryLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Pinecone
-
-content_dir = 'Partitions/'
 
 load_dotenv()
 
 
-if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None:
+if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None or os.getenv("TESSDATA_PREFIX") is None:
     raise Exception(
         """
 
@@ -23,6 +15,15 @@ if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None:
 
 """
     )
+
+from tqdm import tqdm
+
+from langchain_community.document_loaders import DirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Pinecone
+
+content_dir = 'Partitions/'
 
 
 def process_file(file_name, folder, index_names):
@@ -35,6 +36,8 @@ def process_file(file_name, folder, index_names):
 
     check1 = time.time()
     print(f'\t[{check1 - start:.4f}] Loaded [{len(docs)}] documents for [{file_name}]\n')
+
+    return
 
     # Split documents into texts
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
