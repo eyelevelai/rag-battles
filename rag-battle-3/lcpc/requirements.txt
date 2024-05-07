@@ -12,5 +12,5 @@ Pillow
 docx2txt
 unstructured[all-docs]
 poppler-utils
-tesseract-ocr
+pytesseract
 python-dotenv

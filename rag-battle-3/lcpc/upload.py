@@ -10,7 +10,7 @@ if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None 
         """
 
 
-    You have not set a required environment variable (OPENAI_KEY)
+    You have not set a required environment variable (OPENAI_KEY, PINECONE_API_KEY, or TESSDATA_PREFIX)
     Copy .env.sample and rename it to .env then fill in the missing values
 
 """
@@ -25,8 +25,8 @@ from langchain_community.vectorstores import Pinecone
 
 from unstructured.partition.utils.constants import PartitionStrategy
 
-content_dir = 'Pa/'
-partitions = ['partition2', 'partition3']
+content_dir = '../Partitions/'
+partitions = ['partition0', 'partition1', 'partition2', 'partition3']
 
 
 def process_file(partition, file_name, folder, index_names):
@@ -107,9 +107,8 @@ def process_folders(folders, num_processes, api_key):
 
 def process_ben():
     for j, folder in enumerate(partitions):
-        j = j+2
         nd = f"{content_dir}{folder}"
-        index_names = [f'rb3-lcpc-partition{k}' for k in range(j, len(partitions)+2)]
+        index_names = [f'rb3-lcpc-partition{k}' for k in range(j, len(partitions))]
         for file_name in os.listdir(nd):
             process_file(j, file_name, nd, index_names)
     print()

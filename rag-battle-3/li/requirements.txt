@@ -1,0 +1,4 @@
+llama-index
+openai
+pinecone-client
+llama-index-vector-stores-pinecone
