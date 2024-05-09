@@ -17,10 +17,10 @@ if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None:
     )
 
 
-#content_dir = '../Pa/'
-#partitions = ['partition0']
-content_dir = '../Partitions/'
-partitions = ['partition0', 'partition1', 'partition2', 'partition3']
+# content_dir = '../Pa/'
+# partitions = ['partition0']
+content_dir = "../Partitions/"
+partitions = ["partition0", "partition1", "partition2", "partition3"]
 
 
 from pinecone import Pinecone
@@ -40,7 +40,7 @@ pc = Pinecone(
 def process_file_advanced(partition, folder, index_names):
     global pc
 
-    print(f'\n\n[partition{partition}]\tProcessing files [{folder}]')
+    print(f"\n\n[partition{partition}]\tProcessing files [{folder}]")
     print(index_names)
 
     start = time.time()
@@ -49,7 +49,7 @@ def process_file_advanced(partition, folder, index_names):
 def process_file_naive(partition, folder, index_names):
     global pc
 
-    print(f'\n\n[partition{partition}]\tProcessing files [{folder}] FAST')
+    print(f"\n\n[partition{partition}]\tProcessing files [{folder}] FAST")
 
     start = time.time()
 
@@ -58,7 +58,7 @@ def process_file_naive(partition, folder, index_names):
     ).load_data()
 
     check1 = time.time()
-    print(f'\tLlamaIndex [{len(documents)}] documents processed [{check1 - start:.4f}]')
+    print(f"\tLlamaIndex [{len(documents)}] documents processed [{check1 - start:.4f}]")
 
     # Update multiple indices
     for index_name in index_names:
@@ -76,23 +76,29 @@ def process_file_naive(partition, folder, index_names):
         )
 
         check2 = time.time()
-        print(f'\tPinecone [{index_name}] updated [{check2 - check1:.4f}]')
+        print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
 
-    print(f'[partition{partition}]\tProcessing files complete [{folder}] [{time.time() - start:.4f}]\n')
+    print(
+        f"[partition{partition}]\tProcessing files complete [{folder}] [{time.time() - start:.4f}]\n"
+    )
 
 
-def process_ben(ty):
+def process(ty):
     for j, folder in enumerate(partitions):
         j = j
         nd = f"{content_dir}{folder}"
         if False:
-            index_names = ['rb3-li-naive-partitionb']
+            index_names = ["rb3-li-naive-partitionb"]
             process_file_naive(j, nd, index_names)
         elif ty == 2:
-            index_names = [f'rb3-li-advanced-partition{k}' for k in range(j, len(partitions))]
+            index_names = [
+                f"rb3-li-advanced-partition{k}" for k in range(j, len(partitions))
+            ]
             process_file_advanced(j, nd, index_names)
         else:
-            index_names = [f'rb3-li-naive-partition{k}' for k in range(j, len(partitions))]
+            index_names = [
+                f"rb3-li-naive-partition{k}" for k in range(j, len(partitions))
+            ]
             process_file_naive(j, nd, index_names)
 
     print()
@@ -106,8 +112,8 @@ for _, file in enumerate(files):
         print(f"[{dir}] unzipping")
 
         os.mkdir(dir)
-        with zipfile.ZipFile(content_dir+file, 'r') as zip_ref:
+        with zipfile.ZipFile(content_dir + file, "r") as zip_ref:
             zip_ref.extractall(dir)
 
 
-process_ben(1)
+process(1)
