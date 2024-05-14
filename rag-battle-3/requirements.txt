@@ -5,6 +5,7 @@ openai
 pinecone-client
 tiktoken
 llama-index
+llama-index-vector-stores-pinecone
 torch
 transformers
 python-pptx

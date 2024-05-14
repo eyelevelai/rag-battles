@@ -1,26 +1,6 @@
-import multiprocessing, os, time, zipfile
-
-from dotenv import load_dotenv
-
-load_dotenv()
+import os, time
 
 
-if (
-    os.getenv("OPENAI_API_KEY") is None
-    or os.getenv("PINECONE_API_KEY") is None
-    or os.getenv("TESSDATA_PREFIX") is None
-):
-    raise Exception(
-        """
-
-
-    You have not set a required environment variable (OPENAI_KEY, PINECONE_API_KEY, or TESSDATA_PREFIX)
-    Copy .env.sample and rename it to .env then fill in the missing values
-
-"""
-    )
-
-from tqdm import tqdm
 
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -29,11 +9,13 @@ from langchain_community.vectorstores import Pinecone
 
 from unstructured.partition.utils.constants import PartitionStrategy
 
-content_dir = "../Partitions/"
-partitions = ["partition0", "partition1", "partition2", "partition3"]
+
+dry_run = False
 
 
 def process_file(partition, file_name, folder, index_names):
+    global dry_run
+
     addendum = ""
     # Load documents
     loader_args = None
@@ -42,8 +24,14 @@ def process_file(partition, file_name, folder, index_names):
         addendum = " FAST"
 
     print(
-        f"\n\n[partition{partition}]\tProcessing file [{folder}/{file_name}]{addendum}"
+        f"\n\n[LCPC] [partition{partition}]\tProcessing file [{folder}/{file_name}]{addendum}"
     )
+
+    if dry_run:
+        for index_name in index_names:
+            print(f"\tPinecone [{index_name}] updated")
+
+        return
 
     start = time.time()
 
@@ -76,25 +64,15 @@ def process_file(partition, file_name, folder, index_names):
     )
 
 
-def process_ben():
+def process_ben(dry, startp, content_dir, partitions):
+    global dry_run
+
+    dry_run = dry
+
     for j, folder in enumerate(partitions):
-        nd = f"{content_dir}{folder}"
-        index_names = [f"rb3-lcpc-partition{k}" for k in range(j, len(partitions))]
-        for file_name in os.listdir(nd):
-            process_file(j, file_name, nd, index_names)
+        if j >= startp:
+            nd = f"{content_dir}{folder}"
+            index_names = [f"rb3-lcpc-partition{k}" for k in range(j, len(partitions))]
+            for file_name in os.listdir(nd):
+                process_file(j, file_name, nd, index_names)
     print()
-
-
-files = os.listdir(content_dir)
-for _, file in enumerate(files):
-    dir = f"{content_dir}{file.split('.')[0]}"
-
-    if os.path.exists(dir) is False:
-        print(f"[{dir}] unzipping")
-
-        os.mkdir(dir)
-        with zipfile.ZipFile(content_dir + file, "r") as zip_ref:
-            zip_ref.extractall(dir)
-
-
-process_ben()

@@ -1,27 +1,4 @@
-import time, os, zipfile
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-if os.getenv("OPENAI_API_KEY") is None or os.getenv("PINECONE_API_KEY") is None:
-    raise Exception(
-        """
-
-
-    You have not set a required environment variable (OPENAI_KEY, PINECONE_API_KEY, or PINECONE_HOST)
-    Copy .env.sample and rename it to .env then fill in the missing values
-
-"""
-    )
-
-
-# content_dir = '../Pa/'
-# partitions = ['partition0']
-content_dir = "../Partitions/"
-partitions = ["partition0", "partition1", "partition2", "partition3"]
-
+import time, os
 
 from pinecone import Pinecone
 from llama_index.core import (
@@ -33,23 +10,31 @@ from llama_index.vector_stores.pinecone import PineconeVectorStore
 
 
 pc = Pinecone(
-    api_key=os.getenv("PINECONE_API_KEY"),
+    api_key=os.getenv("PINECONE_API_KEY_LI"),
 )
+
+dry_run = False
 
 
 def process_file_advanced(partition, folder, index_names):
     global pc
 
-    print(f"\n\n[partition{partition}]\tProcessing files [{folder}]")
+    print(f"\n\n[LI] [partition{partition}]\tProcessing files [{folder}]")
     print(index_names)
 
     start = time.time()
 
 
 def process_file_naive(partition, folder, index_names):
-    global pc
+    global dry_run, pc
 
-    print(f"\n\n[partition{partition}]\tProcessing files [{folder}] FAST")
+    print(f"\n\n[LI] [partition{partition}]\tProcessing files [{folder}] FAST")
+
+    if dry_run:
+        for index_name in index_names:
+            print(f"\tPinecone [{index_name}] updated")
+
+        return
 
     start = time.time()
 
@@ -83,37 +68,23 @@ def process_file_naive(partition, folder, index_names):
     )
 
 
-def process(ty):
+def process(dry, ty, startp, content_dir, partitions):
+    global dry_run
+
+    dry_run = dry
+
     for j, folder in enumerate(partitions):
-        j = j
-        nd = f"{content_dir}{folder}"
-        if False:
-            index_names = ["rb3-li-naive-partitionb"]
-            process_file_naive(j, nd, index_names)
-        elif ty == 2:
-            index_names = [
-                f"rb3-li-advanced-partition{k}" for k in range(j, len(partitions))
-            ]
-            process_file_advanced(j, nd, index_names)
-        else:
-            index_names = [
-                f"rb3-li-naive-partition{k}" for k in range(j, len(partitions))
-            ]
-            process_file_naive(j, nd, index_names)
+        if j >= startp:
+            nd = f"{content_dir}{folder}"
+            if ty == 2:
+                index_names = [
+                    f"rb3-li-advanced-partition{k}" for k in range(j, len(partitions))
+                ]
+                process_file_advanced(j, nd, index_names)
+            else:
+                index_names = [
+                    f"rb3-li-naive-partition{k}" for k in range(j, len(partitions))
+                ]
+                process_file_naive(j, nd, index_names)
 
     print()
-
-
-files = os.listdir(content_dir)
-for _, file in enumerate(files):
-    dir = f"{content_dir}{file.split('.')[0]}"
-
-    if os.path.exists(dir) is False:
-        print(f"[{dir}] unzipping")
-
-        os.mkdir(dir)
-        with zipfile.ZipFile(content_dir + file, "r") as zip_ref:
-            zip_ref.extractall(dir)
-
-
-process(1)
