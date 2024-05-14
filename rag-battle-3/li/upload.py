@@ -16,8 +16,10 @@ pc = Pinecone(
 dry_run = False
 
 
-def process_file_advanced(partition, folder, index_names):
-    global pc
+def process_file_advanced(dry, partition, folder, index_names):
+    global dry_run, pc
+
+    dry_run = dry
 
     print(f"\n\n[LI] [partition{partition}]\tProcessing files [{folder}]")
     print(index_names)
@@ -25,14 +27,17 @@ def process_file_advanced(partition, folder, index_names):
     start = time.time()
 
 
-def process_file_naive(partition, folder, index_names):
+def process_file_naive(dry, partition, folder, index_names):
     global dry_run, pc
+
+    dry_run = dry
 
     print(f"\n\n[LI] [partition{partition}]\tProcessing files [{folder}] FAST")
 
     if dry_run:
         for index_name in index_names:
-            print(f"\tPinecone [{index_name}] updated")
+            if index_name != 'rb3-li-naive-partition0':
+                print(f"\tPinecone [{index_name}] updated")
 
         return
 
@@ -47,44 +52,48 @@ def process_file_naive(partition, folder, index_names):
 
     # Update multiple indices
     for index_name in index_names:
-        check1 = time.time()
-        storage_context = StorageContext.from_defaults(
-            vector_store=PineconeVectorStore(
-                pinecone_index=pc.Index(
-                    index_name,
+        if index_name != 'rb3-li-naive-partition0':
+            check1 = time.time()
+            storage_context = StorageContext.from_defaults(
+                vector_store=PineconeVectorStore(
+                    pinecone_index=pc.Index(
+                        index_name,
+                    ),
                 ),
-            ),
-        )
-        VectorStoreIndex.from_documents(
-            documents,
-            storage_context=storage_context,
-        )
+            )
+            VectorStoreIndex.from_documents(
+                documents,
+                storage_context=storage_context,
+            )
 
-        check2 = time.time()
-        print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
+            check2 = time.time()
+            print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
 
     print(
         f"[partition{partition}]\tProcessing files complete [{folder}] [{time.time() - start:.4f}]\n"
     )
 
 
-def process(dry, ty, startp, content_dir, partitions):
+def process(dry, ty, startp, endp, content_dir, partitions):
     global dry_run
 
     dry_run = dry
 
     for j, folder in enumerate(partitions):
-        if j >= startp:
+        if (
+            (startp < 0 or j >= startp) and
+            (endp < 0 or j <= endp)
+        ):
             nd = f"{content_dir}{folder}"
             if ty == 2:
                 index_names = [
                     f"rb3-li-advanced-partition{k}" for k in range(j, len(partitions))
                 ]
-                process_file_advanced(j, nd, index_names)
+                process_file_advanced(dry, j, nd, index_names)
             else:
                 index_names = [
                     f"rb3-li-naive-partition{k}" for k in range(j, len(partitions))
                 ]
-                process_file_naive(j, nd, index_names)
+                process_file_naive(dry, j, nd, index_names)
 
     print()

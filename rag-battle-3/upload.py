@@ -31,7 +31,8 @@ partitions = ["partition0", "partition1", "partition2", "partition3"]
 #partitions = ["partition0", "partition1"]
 
 dry_run = False
-start_partition = 1
+start_partition = 0
+end_partition = 0
 
 
 files = os.listdir(content_dir)
@@ -46,5 +47,5 @@ for _, file in enumerate(files):
             zip_ref.extractall(dir)
 
 
-lcpc.process_ben(dry_run, start_partition, content_dir, partitions)
-li.process(dry_run, 1, start_partition, content_dir, partitions)
+lcpc.process_ben(dry_run, start_partition, end_partition, content_dir, partitions)
+li.process(dry_run, 1, start_partition, end_partition, content_dir, partitions)

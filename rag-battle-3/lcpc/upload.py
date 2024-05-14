@@ -13,8 +13,10 @@ from unstructured.partition.utils.constants import PartitionStrategy
 dry_run = False
 
 
-def process_file(partition, file_name, folder, index_names):
+def process_file(dry, partition, file_name, folder, index_names):
     global dry_run
+
+    dry_run = dry
 
     addendum = ""
     # Load documents
@@ -29,7 +31,8 @@ def process_file(partition, file_name, folder, index_names):
 
     if dry_run:
         for index_name in index_names:
-            print(f"\tPinecone [{index_name}] updated")
+            if index_name != 'rb3-lcpc-partition0':
+                print(f"\tPinecone [{index_name}] updated")
 
         return
 
@@ -53,26 +56,30 @@ def process_file(partition, file_name, folder, index_names):
 
     # Update multiple indices
     for index_name in index_names:
-        check1 = time.time()
-        Pinecone.from_documents(texts, embeddings, index_name=index_name)
+        if index_name != 'rb3-lcpc-partition0':
+            check1 = time.time()
+            Pinecone.from_documents(texts, embeddings, index_name=index_name)
 
-        check2 = time.time()
-        print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
+            check2 = time.time()
+            print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
 
     print(
         f"[partition{partition}]\tProcessing file complete [{folder}/{file_name}] [{time.time() - start:.4f}]\n"
     )
 
 
-def process_ben(dry, startp, content_dir, partitions):
+def process_ben(dry, startp, endp, content_dir, partitions):
     global dry_run
 
     dry_run = dry
 
     for j, folder in enumerate(partitions):
-        if j >= startp:
+        if (
+            (startp < 0 or j >= startp) and
+            (endp < 0 or j <= endp)
+        ):
             nd = f"{content_dir}{folder}"
             index_names = [f"rb3-lcpc-partition{k}" for k in range(j, len(partitions))]
             for file_name in os.listdir(nd):
-                process_file(j, file_name, nd, index_names)
+                process_file(dry, j, file_name, nd, index_names)
     print()

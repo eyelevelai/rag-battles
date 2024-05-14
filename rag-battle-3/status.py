@@ -6,15 +6,39 @@ load_dotenv()
 
 from pinecone import Pinecone
 
-pc = Pinecone(
+
+lcpc = Pinecone(
     api_key=os.getenv("PINECONE_API_KEY"),
 )
+lipc = Pinecone(
+    api_key=os.getenv("PINECONE_API_KEY_LI"),
+)
 
-idx = pc.Index("rb3-li-naive-partition0")
-print(idx.describe_index_stats())
-idx = pc.Index("rb3-li-naive-partition1")
-print(idx.describe_index_stats())
-idx = pc.Index("rb3-li-naive-partition2")
-print(idx.describe_index_stats())
-idx = pc.Index("rb3-li-naive-partition3")
-print(idx.describe_index_stats())
+
+lcpcidx = [
+    "rb3-lcpc-partition0",
+    "rb3-lcpc-partition1",
+    "rb3-lcpc-partition2",
+    "rb3-lcpc-partition3",
+]
+lipcidx = [
+    "rb3-li-naive-partition0",
+    "rb3-li-naive-partition1",
+    "rb3-li-naive-partition2",
+    "rb3-li-naive-partition3",
+]
+
+
+for id in lcpcidx:
+    idx = lcpc.Index(id)
+
+    print(id)
+    print(idx.describe_index_stats())
+    print()
+
+for id in lipcidx:
+    idx = lipc.Index(id)
+
+    print(id)
+    print(idx.describe_index_stats())
+    print()
