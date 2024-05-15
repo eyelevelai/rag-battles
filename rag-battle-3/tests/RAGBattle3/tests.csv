@@ -1,0 +1,265 @@
+query,expected_response,context_file,problem_type,context_modality
+What is the standard corporate tax rate in the United States?,21%,dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Extraction,Natural Tabular PDF
+What is the standard corporate tax rate in Peru?,29.50%,dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Extraction,Natural Tabular PDF
+What is the branch rate in Belgium?,25%,dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Extraction,Natural Tabular PDF
+What is the branch rate in Zimbabwe?,24%,dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Extraction,Natural Tabular PDF
+What is the local branch rate in Australia?,"local rate 0%, branch rate 30%",dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Extraction,Natural Tabular PDF
+What is the national corporate tax rate in Vanuatu?,Not enough information,dttl-tax-corporate-tax-rates-2023.pdf,Negative Tabular Extraction,Natural Tabular PDF
+What is the local branch rate in Togo?,Not enough information,dttl-tax-corporate-tax-rates-2023.pdf,Negative Tabular Extraction,Natural Tabular PDF
+Do any countries have a branch profits tax in addition to the standard corporate tax rate?,"Yes, several countries impose an additional branch profits tax on after-tax profits of branches. For example, Colombia imposes a 20% branch profits tax, the Dominican Republic has a 10% branch profits tax, and the Philippines charges a 15% branch profits tax.",dttl-tax-corporate-tax-rates-2023.pdf,Tabular Information Summarization,Natural Tabular PDF
+What is the standard corporate tax rate in Latvia?,20%. Corporate income tax is only payable in Latvia when profits are distributed or deemed distributed.,dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Extraction,Natural Tabular PDF
+What is the standard corporate tax rate for domestic companies in India with total turnover not exceeding INR 4 billion?,25%,dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Extraction,Natural Tabular PDF
+What is the branch profits tax rate in Algeria?,15%,dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Extraction,Natural Tabular PDF
+What type of tax is imposed on gross receipts of most companies in Bangladesh exceeding BDT 5 million?,"Minimum tax of 0.6% (0.1%, 1%, or 2% for certain types of companies) applies to gross receipts of most companies with gross receipts exceeding BDT 5 million.",dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Extraction,Natural Tabular PDF
+Do any countries have different corporate tax rates that apply based on the type of business activity?,"Yes, several countries apply different corporate tax rates depending on the industry or business activity. For example, Laos has rates ranging from 3% to 35% based on the type of business. Vietnam applies rates of 32% to 50% for enterprises in the oil and gas and natural resources sectors.",dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Summarization,Natural Tabular PDF
+What B2C use cases does embedded finance enable?,"- Buying a house
+- Booking travel
+- Buying a car
+- Filing your taxes
+- Getting groceries
+- Buying big-ticket items
+- Renting a flat",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+What B2B use cases does embedded finance enable?,"- Paying invoices
+- Financing working capital
+- Providing benefits
+- Financing assets
+- Filing taxes",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+What are the three key layers to embedded finance?,"- Embedded finance offering
+- Middleware provider
+- Underlying financial service/institution
+
+Note: Banking-as-a-service includes both ""Middleware provider"" and ""Underlying financial service/institution""",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+I remember a diagram of a coustomer journey where someone pays invoices. It's a diagram where this guy who owns a buisness has to pay an invoice. There's an arrow with steps he had to do to pay the invoice and grow his buisness. What were the steps of that diagram?,"1) John is the sole
+proprietor of WidgetCo,
+a small business
+
+2) John receives an
+invoice from
+PartsCo. for items
+he bought
+
+3) John’s preferred payment
+methods and payment terms are
+built into the invoice, allowing him
+to make a one-click payment
+
+4) Several days later,
+John decides to
+convert his payment to
+an instalment loan
+
+5) John receives the goods,
+and is pushed an offer
+for theft insurance of the
+items he purchased
+
+6) John uses the
+items to create
+new products",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+In what scinarios would a financial institution use a platform?,"FI = Financial Institution
+
+Scenario 1: FIs that create their own
+platforms to serve customers:
+
+Scenario 2: FIs embedded in other
+platforms and ecosystems
+
+Scenario 3: FIs creating platforms to
+serve other players in the industry",iif-and-deloitte-ecosystem-imperative-platformization-report.pdf,Graphical Information Summarization,Natural Rich PDF
+What are the Diminishing forces of systemic risk?,"Oversight
+Transparency
+Ethics
+Diversification
+Trust
+Coordination
+Governance",gx-deloitte-wef-infographic.pdf,Graphical Information Summarization,Natural Rich PDF
+are Business development companies more or less flexible than Mezzanine funds?,Business development companies are less flexible.,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Summarization,Natural Rich PDF
+What entities chiefly comprise an open data ecosystem?,"Data Custodians, Data users, and Consumers",gx-iif-open-data.pdf,Graphical Information Summarization,Natural Rich PDF
+Are Telcos an example of open data or open finance?,Open Data.,gx-iif-open-data.pdf,Graphical Information Extraction,Natural Rich PDF
+What is the Cost of capital for Private equity funds?,25%+,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What is the roll of a data custodian?,"Generate, store, and augment data on behalf of consumers based on their underlying
+activity (e.g., transactions, hobbies, or internet usage). In an Open Data model, Data
+Custodians are responsible for providing an agreed-upon set of third parties (data users)
+with access to consumer data on the explicit direction and authorization of the consumer.",gx-iif-open-data.pdf,Graphical Information Extraction,Natural Rich PDF
+Who is the leader of private wealth tax?,Wendy Diamond,us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What are the three typical stages of post-mortem activity?,"First, the executor should develop a snapshot of the decedent's financial position as of his date of death, segregate pre and post death income and expenses, and open the estate administration period. Second, the estate tax liability is calculated and the estate tax return is prepared. Third, the estate assets are distributed after the examination process is complete.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Summarization,Natural Rich PDF
+How long does it typically take to settle an estate for very high-net-worth individuals?,"For very high-net-worth individuals, the post-mortem period can range from three to ten or more years, with the average estate taking approximately five years to settle.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What are two typical choices estates have for paying estate tax liabilities if they don't have earmarked cash?,"If the estate doesn't have earmarked cash to pay estate tax liabilities, it usually has two choices: borrow funds to pay the taxes or sell assets to generate cash.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+How does the presence of a family business affect the estate's administrative process?,"In situations where the ownership of the family business is shared with many beneficiaries, there are frequently issues involving control over the business and its future governance.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What is one of the first steps in establishing a governance model for a family enterprise?,"One of the first steps is to understand that as families grow, so too, does complexity. Governance helps family leaders anticipate and address challenges by bringing greater discipline, transparency, and accountability to the issues that matter most.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What are some benefits that can accrue from maintaining an inventory of technology assets and developing a plan for evolving infrastructure?,"Benefits include: supporting growth by improving customer engagement and brand value, enabling expansion opportunities as industry lines blur, and potentially increasing the intrinsic value of the enterprise.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Summarization,Natural Rich PDF
+What does the Secured Overnight Financing Rate (SOFR) range from for the lowest cost and most flexible lending sources like traditional banks?,0 to SOFR+400,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+Which lending sources have the highest cost flexibility based on the chart?,Private equity funds,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What is the estimated cost of capital range for mezzanine funds?,15-19%,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What is the estimated cost of capital range for business development companies?,"SOFR+600 to 1,000",us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What type of lending source has costs greater than 25%?,Private equity funds,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What legislation did House Democrats representing high local tax jurisdictions try to pass to relax the SALT deduction cap?,"The Build Back Better legislation that the House approved last November called for temporarily increasing the cap on the deduction to $80,000",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+Why did SALT cap relief provisions prove problematic in the Senate?,Some Democrats in the Senate believed that it would primarily benefit wealthier taxpayers.,us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What are two prominent supporters of retirement legislation who are leaving Congress at the end of 2022?,"House Ways and Means Committee ranking member Kevin Brady, R-Texas, and Senate Finance Committee member Rob Portman, R-Ohio",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+When did the House pass their version of the SECURE 2.0 retirement bill?,"The House overwhelmingly approved a bipartisan SECURE 2.0"" bill this past March.""",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What were some of the goals of the House and Senate versions of the SECURE 2.0 retirement bills?,Both bills include provisions aimed at making it easier for businesses to offer tax-qualified retirement savings plans to their employees and for individuals to participate in retirement plans and grow their tax-preferred savings.,us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Summarization,Natural Rich PDF
+When was RPA a top 5 priority?,2019 and 2020,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Textual Information Extraction,Natural Rich PDF
+What percentage of organizations spend their entire security budget on regulatory security?,2%,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
+What two main regions does the 2023 cybersecurity insights doc address,"North America (NAM)
+Europe, Middle East, and Africa (EMEA)",cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Summarization,Natural Rich PDF
+How often is physical cyber security outsourced?,15% of the time.,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
+"on my tax max 2023, how did the deffinition of a ""Plant"" change?",A plant changed from an intangible asset to any asset specified by the Minister,my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"on my tax max 2023, what was the Tax Deduction on Cost of Listing in Bursa Malaysia proposed change?","Extended Trading Activity for a period of 3 years
+
+Scope of tax deduction be expanded to include technology-based companies listed on Bursa Main Market",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"Does a proposed value of RM 10 correspond to Tertiary education level at higher learning institutions, other levels, or both?",both,my-tax-max-2023-corporate-and-other-taxes.pdf,Tabular Information Extraction,Natural Rich PDF
+What is a Tax Identification Number mandatory for in phase 2?,"Transfer of property, Transfer of shares, Transfer of business",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"is ""Capital expenditure threshold for categories 1, 2 and agriculture be aligned and increased up to RM10 million."" proposed or current?",proposed,my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"is ""For applications received by Malaysian Investment Development Authority (“MIDA”) until 31 December 2023"" proposed or current?",current,my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"on my tax max page 46, what is choice ""A""?","Existing treatment under Charitable Hospital
+- Subsection 44(6) of the Act",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+What percentage of respondants ranked Digital business models as their top 3?,65%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+What percentage of M&A or divestment activity are in the initial discussion stage?,73%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+what percentage of new product launchesis are in the formal planning stage?,51%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+what percentage of respondants ranked lack of support from senior stakeholders as a barrier to delivering strategic value?,43%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+"On the graph titled ""Effectiveness of the tax team at delivering on ability to deliver strategic value"", what is the percentage for ""Advising the business on emerging regulatory and compliance issues"" for ""NextGen ERP system/Moderate/Low""",37%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+"On the graph titled ""Effectiveness of the tax team at delivering on ability to deliver strategic value"", what is the percentage for ""Advising the business on emerging regulatory and compliance issues"" for ""NextGen ERP system/Advanced""",64%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+"for ""Transfer pricing documentation: Main approach to workloads"" what is the percentage of ""Resourced within global tax"" in 2019?",46%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what were dividends in the albanian jurisdiction?",8%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are royalties in the Kenya jurisdiction?",5%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what is interest in the Singapore jurisdiction?",0%/15%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Singapore jurisdiction?",0%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Trinidad & Tobago jurisdiction?",3%/8%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Uzbekistan jurisdiction?",5%/10%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Zambia jurisdiction?",0%/15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Royalties in the Zambia jurisdiction?",15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what is Interest in the Zambia jurisdiction?",0%/15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Royalties in the Zambia jurisdiction?",15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Royalties in the Zimbabwe jurisdiction?",15%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, What is the highest rate of Dividends seen?",20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Summarization,Natural Rich PDF
+What are the three highest priorities for the tax department over the next three to five years?,"Comply with new tax law changes
+Manage effective tax rate
+Apply an ESG framework to the tax department",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"What are the three highest priorities in moving toward a lower-cost resourcing model over
+the next one to two years?","Global tax provision
+Tax data management
+Tax governance and risk",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"in ""Figure 4. Widespread use of outsourcing"", what are the percentages and what do they represent?","74% = Outsourcing as main approach for one or more tax activities
+26% = In-house resources as main approach for one or more tax activities",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"What is the current progress in implementation of additional training programs
+for skills required in strategic roles, in terms of the percentage Fully implemented, the percentage Partially implemented/initial stages, and the percentage Plan to implement within 12 months?","Fully implemented: 54%
+Partially implemented/initial stages: 44%
+Plan to implement within 12 months: 1%",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"in ""Figure 9. Survey demographics—300 respondents to a web-based survey"", what are the sub-regions within ""Asia Pacific""?","China, Japan, and Australia",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"Provide information about ""Idaho: New law revises effective date on corporate and individual income tax rate reductions""","Effective retroactively to January 1, 2023,
+new law revises legislation enacted last
+year that lowers Idaho’s corporate income
+tax rate from 6% to 5.8% by changing the
+effective date from on and after January
+3, 2023, to on and after January 1, 2023.
+Similarly, effective on and after January 1,
+2023 (rather than January 3, 2023), Idaho
+now implements a flat individual income
+tax rate of 5.8%.
+For additional details, please refer to the
+March 31, 2023 edition of State Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""Illinois: Tax Tribunal affirms penalties in 80/20 company scenario deemed a sham transaction""","Following its 2021 ruling that a taxpayer’s
+affiliate must be included in its combined
+Illinois tax return because the affiliate failed
+to qualify as an “80/20 company” given
+that its ownership in a single-member
+limited liability company was deemed
+to lack economic substance, the Illinois
+Independent Tax Tribunal now holds in
+the same case that the underlying late
+penalties must not be abated.
+For additional details, please refer to the
+March 31, 2023 edition of State Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""Michigan: Insurance affiliates qualifying as UBG cannot file a combined return""","In a case involving affiliated insurance
+companies that met Michigan’s corporate
+income tax statutory requirements for
+a unitary business group (UBG), the
+Michigan Tax Tribunal held that pursuant
+to other applicable state statutes, the
+affiliates cannot file as a UBG for Michigan
+premiums and retaliatory taxes and thus
+may not claim certain Michigan insurance-
+related tax credits on a combined tax return.
+For additional details, please refer to
+the February 10, 2023, edition of State
+Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""New Hampshire: Adopted rule
+Reflects NOL changes under
+business profits tax""","The New Hampshire Department of
+Revenue Administration adopted rule
+amendments reflecting new law that
+modifies calculation of the net operating
+loss (NOL) carryover deduction under New
+Hampshire’s business profits tax (BPT) for
+tax years ending on or after December 31,
+2022, by permitting the apportioned NOL
+carryover to be utilized as a deduction
+against the apportioned taxable income of
+the taxpayer.
+For additional details, please refer to
+the February 17, 2023, edition of State
+Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""New York:
+Combined group fails to
+establish that it qualified for
+reduced corporate income
+tax rate""","In a case involving affiliates filing Article
+9-A New York combined returns for the
+prior tax years at issue and reporting tax
+due on the entire net income base, an
+administrative law judge held that the
+combined group was not a qualified New
+York manufacturer or a qualified emerging
+technology company (QETC), and therefore
+could not utilize the applicable reduced
+corporate income tax rate.
+For additional details, please refer to the
+March 31, 2023 edition of State Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+Provide information about the Hong Kong Financial Secretary delivers 2023–24 budget speech,"On February 22, 2023, Financial Secretary
+of Hong Kong SAR, Paul Chan Mo-po
+delivered the 2023–24 budget speech.
+This is the first budget the Financial
+
+Secretary has prepared for the current-
+term government led by John Lee Ka-chiu,
+
+the Hong Kong SAR Chief Executive.
+Some of the key tax proposals affecting
+businesses include the introduction of
+a patent box regime, clarification on the
+treatment of certain onshore capital
+gains, enhancement of the aircraft leasing
+preferential tax regime, implementation of
+the global minimum tax regime, and the
+introduction of a mechanism to facilitate
+companies to re-domicile to Hong Kong SAR.
+For additional details, please refer to the
+Deloitte tax@hand article dated March
+1, 2023.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about the United Kingdom ""Finance Act 2023 receives
+royal assent""","The United Kingdom’s “Autumn Finance Bill
+2022,” the brief finance bill introduced in
+November 2022 to enact a small number of
+key tax changes announced in November’s
+Autumn Statement, received royal assent
+on January 10, 2023, and has become
+“Finance Act 2023.” The act comprises 12
+sections in total and includes changes to
+the energy profits levy as from January 1,
+2023, changes to corporation tax research
+and development relief rates as from April
+1, 2023, and the reduction of the income
+tax additional rate threshold as from April
+6, 2023.
+For additional details, please refer to the
+Deloitte tax@hand article dated January
+13, 2023.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+What vehicle models are actively being produced at the Fremont Factory?,"Model S / Model X, Model 3 / Model Y",tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+What is the status of Cybertruck production at Gigafactory Texas?,Pilot production,tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+Where is the Tesla Roadster in development?,TBD,tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+What was the M&P corporate tax rate in the Yukon in 2014?,2.50%,ca-en-tax-corporate-income-tax-rates.pdf,Tabular Information Extraction,Natural Rich PDF
+What was the small business Canadian Federal tax rate in 2014?,11.00%,ca-en-tax-corporate-income-tax-rates.pdf,Tabular Information Extraction,Natural Rich PDF
+Did the small business corporate income tax rate change between 2010 to 2014 for Nunavut?,No,ca-en-tax-corporate-income-tax-rates.pdf,Tabular Information Summarization,Natural Rich PDF
+What is the Three Months Ended September 30 revenue in Automotive leasing for 2023?,$489 million,tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+what is the balance of common stock shares as of three months ended september 2022?,"3,158",tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+"For Nine Months Ended September 30, 2022, what was the Net cash used in investing activities?","$5,842 Million",tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF

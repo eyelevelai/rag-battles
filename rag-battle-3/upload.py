@@ -1,4 +1,4 @@
-import time, os, zipfile
+import os, zipfile
 
 from dotenv import load_dotenv
 

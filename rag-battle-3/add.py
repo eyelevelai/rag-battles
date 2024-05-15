@@ -11,11 +11,13 @@ import li.upload as liupload
 
 
 dry_run = False
-partition = 2
+partition = 1
+
 
 folder = "Pa/partition1"
 addfiles = [
-    "",
+    "usc42_ch40to81_Secs3271to6892@118-44not42.pdf",
+    "usc45@118-44not42.pdf",
 ]
 
 

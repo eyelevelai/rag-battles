@@ -7,23 +7,25 @@ load_dotenv()
 from pinecone import Pinecone
 
 
-dry_run = True
+dry_run = False
 
 
 lcpcidx = [
     "rb3-lcpc-partition1",
-    "rb3-lcpc-partition2",
-    "rb3-lcpc-partition3",
+    #"rb3-lcpc-partition2",
+    #"rb3-lcpc-partition3",
 ]
 lipcidx = [
     "rb3-li-naive-partition1",
-    "rb3-li-naive-partition2",
-    "rb3-li-naive-partition3",
+    #"rb3-li-naive-partition2",
+    #"rb3-li-naive-partition3",
 ]
 
+
 delfiles = [
-    "",
+    "pwc-worldwide-tax-summaries-corporate-2013-14-unlocked.pdf",
 ]
+
 
 lcpc = Pinecone(
     api_key=os.getenv("PINECONE_API_KEY"),
@@ -31,6 +33,7 @@ lcpc = Pinecone(
 lipc = Pinecone(
     api_key=os.getenv("PINECONE_API_KEY_LI"),
 )
+
 
 def deleteRecords(index, records):
     deleted = 0
