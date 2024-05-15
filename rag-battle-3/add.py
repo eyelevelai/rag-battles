@@ -10,11 +10,13 @@ import lcpc.upload as lcupload
 import li.upload as liupload
 
 
-dry_run = True
-partition = 1
+dry_run = False
+partition = 2
 
-folder = "Partitions/partition1-addendum"
-addfiles = ["ct_audit_manual.pdf"]
+folder = "Pa/partition1"
+addfiles = [
+    "",
+]
 
 
 lcpcidx = [

@@ -21,7 +21,9 @@ lipcidx = [
     "rb3-li-naive-partition3",
 ]
 
-delfiles = ["Corporate Tax 2023.pdf"]
+delfiles = [
+    "",
+]
 
 lcpc = Pinecone(
     api_key=os.getenv("PINECONE_API_KEY"),
@@ -29,6 +31,19 @@ lcpc = Pinecone(
 lipc = Pinecone(
     api_key=os.getenv("PINECONE_API_KEY_LI"),
 )
+
+def deleteRecords(index, records):
+    deleted = 0
+    for i in range(0, len(records), 1000):
+        group = records[i:i + 1000]
+        index.delete(ids=group)
+        deleted += len(group)
+
+    print(f"deleted [{deleted}] of [{len(records)}] records")
+
+
+print()
+print(delfiles)
 
 for lidx in lcpcidx:
     index = lcpc.Index(lidx)
@@ -55,7 +70,7 @@ for lidx in lcpcidx:
         break
     if len(deletes) > 0:
         print("deleting")
-        index.delete(ids=deletes)
+        deleteRecords(index, deletes)
 
 for lidx in lipcidx:
     index = lipc.Index(lidx)
@@ -66,9 +81,7 @@ for lidx in lipcidx:
         records = index.fetch(ids)
         for n in records['vectors']:
             id = records['vectors'][n]['id']
-            print(id)
             source = records['vectors'][n]['metadata']['file_name']
-            print(source)
             for d in delfiles:
                 if d.lower() in source.lower():
                     deletes.append(id)
@@ -84,4 +97,4 @@ for lidx in lipcidx:
         break
     if len(deletes) > 0:
         print("deleting")
-        index.delete(ids=deletes)
+        deleteRecords(index, deletes)
