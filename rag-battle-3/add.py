@@ -32,15 +32,16 @@ lipcidx = [
     "rb3-li-naive-partition3",
 ]
 
-lcpc = Pinecone(
-    api_key=os.getenv("PINECONE_API_KEY"),
-)
-lipc = Pinecone(
-    api_key=os.getenv("PINECONE_API_KEY_LI"),
-)
 
-for f in addfiles:
-    lcupload.process_file(dry_run, partition, f, folder, lcpcidx)
+if __name__ == "__main__":
+    lcpc = Pinecone(
+        api_key=os.getenv("PINECONE_API_KEY"),
+    )
+    lipc = Pinecone(
+        api_key=os.getenv("PINECONE_API_KEY_LI"),
+    )
 
+    for f in addfiles:
+        lcupload.process_file(dry_run, partition, f, folder, lcpcidx)
 
-liupload.process_file_naive(dry_run, partition, folder, lipcidx)
+    liupload.process_file_naive(dry_run, partition, folder, lipcidx)

@@ -29,16 +29,17 @@ lipcidx = [
 ]
 
 
-for id in lcpcidx:
-    idx = lcpc.Index(id)
+if __name__ == "__main__":
+    for id in lcpcidx:
+        idx = lcpc.Index(id)
 
-    print(id)
-    print(idx.describe_index_stats())
-    print()
+        print(id)
+        print(idx.describe_index_stats())
+        print()
 
-for id in lipcidx:
-    idx = lipc.Index(id)
+    for id in lipcidx:
+        idx = lipc.Index(id)
 
-    print(id)
-    print(idx.describe_index_stats())
-    print()
+        print(id)
+        print(idx.describe_index_stats())
+        print()

@@ -45,59 +45,60 @@ def deleteRecords(index, records):
     print(f"deleted [{deleted}] of [{len(records)}] records")
 
 
-print()
-print(delfiles)
+if __name__ == "__main__":
+    print()
+    print(delfiles)
 
-for lidx in lcpcidx:
-    index = lcpc.Index(lidx)
+    for lidx in lcpcidx:
+        index = lcpc.Index(lidx)
 
-    print(f"\nchecking [{lidx}]\n")
-    deletes = []
-    for ids in index.list():
-        records = index.fetch(ids)
-        for n in records['vectors']:
-            id = records['vectors'][n]['id']
-            source = records['vectors'][n]['metadata']['source']
-            for d in delfiles:
-                if d.lower() in source.lower():
-                    deletes.append(id)
+        print(f"\nchecking [{lidx}]\n")
+        deletes = []
+        for ids in index.list():
+            records = index.fetch(ids)
+            for n in records['vectors']:
+                id = records['vectors'][n]['id']
+                source = records['vectors'][n]['metadata']['source']
+                for d in delfiles:
+                    if d.lower() in source.lower():
+                        deletes.append(id)
+                    if dry_run:
+                        break
                 if dry_run:
-                    break
+                    break 
             if dry_run:
-                break 
+                break
+
+        print(f"found [{len(deletes)}] records that match delete files")
         if dry_run:
             break
+        if len(deletes) > 0:
+            print("deleting")
+            deleteRecords(index, deletes)
 
-    print(f"found [{len(deletes)}] records that match delete files")
-    if dry_run:
-        break
-    if len(deletes) > 0:
-        print("deleting")
-        deleteRecords(index, deletes)
+    for lidx in lipcidx:
+        index = lipc.Index(lidx)
 
-for lidx in lipcidx:
-    index = lipc.Index(lidx)
-
-    print(f"\nchecking [{lidx}]\n")
-    deletes = []
-    for ids in index.list():
-        records = index.fetch(ids)
-        for n in records['vectors']:
-            id = records['vectors'][n]['id']
-            source = records['vectors'][n]['metadata']['file_name']
-            for d in delfiles:
-                if d.lower() in source.lower():
-                    deletes.append(id)
+        print(f"\nchecking [{lidx}]\n")
+        deletes = []
+        for ids in index.list():
+            records = index.fetch(ids)
+            for n in records['vectors']:
+                id = records['vectors'][n]['id']
+                source = records['vectors'][n]['metadata']['file_name']
+                for d in delfiles:
+                    if d.lower() in source.lower():
+                        deletes.append(id)
+                    if dry_run:
+                        break
                 if dry_run:
-                    break
+                    break 
             if dry_run:
-                break 
+                break
+
+        print(f"found [{len(deletes)}] records that match delete files")
         if dry_run:
             break
-
-    print(f"found [{len(deletes)}] records that match delete files")
-    if dry_run:
-        break
-    if len(deletes) > 0:
-        print("deleting")
-        deleteRecords(index, deletes)
+        if len(deletes) > 0:
+            print("deleting")
+            deleteRecords(index, deletes)
