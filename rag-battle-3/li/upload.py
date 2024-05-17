@@ -16,6 +16,26 @@ pc = Pinecone(
 dry_run = False
 
 
+def upload_vectors(index_names, documents):
+    # Update multiple indices
+    for index_name in index_names:
+        check1 = time.time()
+        storage_context = StorageContext.from_defaults(
+            vector_store=PineconeVectorStore(
+                pinecone_index=pc.Index(
+                    index_name,
+                ),
+            ),
+        )
+        VectorStoreIndex.from_documents(
+            documents,
+            storage_context=storage_context,
+        )
+
+        check2 = time.time()
+        print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
+
+
 def process_file_advanced(ty, dry, partition, folder, index_names):
     global dry_run, pc
 
@@ -30,10 +50,30 @@ def process_file_advanced(ty, dry, partition, folder, index_names):
 
         return
 
+    start = time.time()
+
     if ty == 2:
         print('new advanced processing strategy')
+
+        # this is naive code for loading documents
+
+        documents = SimpleDirectoryReader(
+            folder,
+        ).load_data()
+
+        check1 = time.time()
+        print(f"\tLlamaIndex [{len(documents)}] documents processed [{check1 - start:.4f}]")
+
+        upload_vectors(index_names, documents)
+
+        # end naive code
+
     else:
         print(f"not set yet strategy [{ty}]")
+
+    print(
+        f"[partition{partition}]\tProcessing files complete [{folder}] [{time.time() - start:.4f}]\n"
+    )
 
 
 def process_file_naive(dry, partition, folder, index_names):
@@ -60,23 +100,7 @@ def process_file_naive(dry, partition, folder, index_names):
     print(f"\tLlamaIndex [{len(documents)}] documents processed [{check1 - start:.4f}]")
 
     # Update multiple indices
-    for index_name in index_names:
-        if index_name != 'rb3-li-naive-partition0':
-            check1 = time.time()
-            storage_context = StorageContext.from_defaults(
-                vector_store=PineconeVectorStore(
-                    pinecone_index=pc.Index(
-                        index_name,
-                    ),
-                ),
-            )
-            VectorStoreIndex.from_documents(
-                documents,
-                storage_context=storage_context,
-            )
-
-            check2 = time.time()
-            print(f"\tPinecone [{index_name}] updated [{check2 - check1:.4f}]")
+    upload_vectors(index_names, documents)
 
     print(
         f"[partition{partition}]\tProcessing files complete [{folder}] [{time.time() - start:.4f}]\n"
