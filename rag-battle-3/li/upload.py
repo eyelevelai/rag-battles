@@ -16,15 +16,24 @@ pc = Pinecone(
 dry_run = False
 
 
-def process_file_advanced(dry, partition, folder, index_names):
+def process_file_advanced(ty, dry, partition, folder, index_names):
     global dry_run, pc
 
     dry_run = dry
 
     print(f"\n\n[LI] [partition{partition}]\tProcessing files [{folder}]")
-    print(index_names)
 
-    start = time.time()
+    if dry_run:
+        for index_name in index_names:
+            if index_name != 'rb3-li-naive-partition0':
+                print(f"\tPinecone [{index_name}] updated")
+
+        return
+
+    if ty == 2:
+        print('new advanced processing strategy')
+    else:
+        print(f"not set yet strategy [{ty}]")
 
 
 def process_file_naive(dry, partition, folder, index_names):
@@ -85,12 +94,12 @@ def process(dry, ty, startp, endp, content_dir, partitions):
             (endp < 0 or j <= endp)
         ):
             nd = f"{content_dir}{folder}"
-            if ty == 2:
+            if ty > 1:
                 index_names = [
-                    f"rb3-li-advanced-partition{k}" for k in range(j, len(partitions))
+                    f"rb3-li-adv-{ty}-partition{k}" for k in range(j, len(partitions))
                 ]
-                process_file_advanced(dry, j, nd, index_names)
-            else:
+                process_file_advanced(ty, dry, j, nd, index_names)
+            elif ty == 1:
                 index_names = [
                     f"rb3-li-naive-partition{k}" for k in range(j, len(partitions))
                 ]

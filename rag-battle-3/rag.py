@@ -24,9 +24,9 @@ if (
     )
 
 
-runGroundX = True
+runGroundX = False
 runLCPC = False
-runLI = False
+runLI = True
 
 model_name = 'gpt-4-turbo-2024-04-09'
 results_path = 'results'

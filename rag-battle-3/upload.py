@@ -25,10 +25,15 @@ import lcpc.upload as lcpc
 import li.upload as li
 
 
+runGroundX = False
+runLCPC = False
+runLI = True
+
+
 content_dir = "Partitions/"
 partitions = ["partition0", "partition1", "partition2", "partition3"]
 
-dry_run = False
+dry_run = True
 start_partition = 0
 end_partition = 0
 
@@ -45,5 +50,10 @@ if __name__ == "__main__":
             with zipfile.ZipFile(content_dir + file, "r") as zip_ref:
                 zip_ref.extractall(dir)
 
-    lcpc.process_ben(dry_run, start_partition, end_partition, content_dir, partitions)
-    li.process(dry_run, 1, start_partition, end_partition, content_dir, partitions)
+    if runLCPC:
+        lcpc.process_ben(dry_run, start_partition, end_partition, content_dir, partitions)
+
+    if runLI:
+        ragStrategy = 2
+
+        li.process(dry_run, ragStrategy, start_partition, end_partition, content_dir, partitions)
