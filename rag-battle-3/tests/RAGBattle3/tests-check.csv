@@ -1,0 +1,127 @@
+query,expected_response,context_file,problem_type,context_modality
+What is the local branch rate in Togo?,Not enough information,dttl-tax-corporate-tax-rates-2023.pdf,Negative Tabular Extraction,Natural Tabular PDF
+What B2C use cases does embedded finance enable?,"- Buying a house
+- Booking travel
+- Buying a car
+- Filing your taxes
+- Getting groceries
+- Buying big-ticket items
+- Renting a flat",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+What B2B use cases does embedded finance enable?,"- Paying invoices
+- Financing working capital
+- Providing benefits
+- Financing assets
+- Filing taxes",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+I remember a diagram of a coustomer journey where someone pays invoices. It's a diagram where this guy who owns a buisness has to pay an invoice. There's an arrow with steps he had to do to pay the invoice and grow his buisness. What were the steps of that diagram?,"1) John is the sole
+proprietor of WidgetCo,
+a small business
+
+2) John receives an
+invoice from
+PartsCo. for items
+he bought
+
+3) John’s preferred payment
+methods and payment terms are
+built into the invoice, allowing him
+to make a one-click payment
+
+4) Several days later,
+John decides to
+convert his payment to
+an instalment loan
+
+5) John receives the goods,
+and is pushed an offer
+for theft insurance of the
+items he purchased
+
+6) John uses the
+items to create
+new products",iif-deloitte-embedded-finance-report-3-august.pdf,Graphical Information Summarization,Natural Rich PDF
+are Business development companies more or less flexible than Mezzanine funds?,Business development companies are less flexible.,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Summarization,Natural Rich PDF
+How long does it typically take to settle an estate for very high-net-worth individuals?,"For very high-net-worth individuals, the post-mortem period can range from three to ten or more years, with the average estate taking approximately five years to settle.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What are two typical choices estates have for paying estate tax liabilities if they don't have earmarked cash?,"If the estate doesn't have earmarked cash to pay estate tax liabilities, it usually has two choices: borrow funds to pay the taxes or sell assets to generate cash.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
+What is the estimated cost of capital range for mezzanine funds?,15-19%,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+What is the estimated cost of capital range for business development companies?,"SOFR+600 to 1,000",us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+When was RPA a top 5 priority?,2019 and 2020,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Textual Information Extraction,Natural Rich PDF
+What percentage of organizations spend their entire security budget on regulatory security?,2%,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
+How often is physical cyber security outsourced?,15% of the time.,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
+"on my tax max 2023, how did the deffinition of a ""Plant"" change?",A plant changed from an intangible asset to any asset specified by the Minister,my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"on my tax max 2023, what was the Tax Deduction on Cost of Listing in Bursa Malaysia proposed change?","Extended Trading Activity for a period of 3 years
+
+Scope of tax deduction be expanded to include technology-based companies listed on Bursa Main Market",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"Does a proposed value of RM 10 correspond to Tertiary education level at higher learning institutions, other levels, or both?",both,my-tax-max-2023-corporate-and-other-taxes.pdf,Tabular Information Extraction,Natural Rich PDF
+What is a Tax Identification Number mandatory for in phase 2?,"Transfer of property, Transfer of shares, Transfer of business",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+"on my tax max page 46, what is choice ""A""?","Existing treatment under Charitable Hospital
+- Subsection 44(6) of the Act",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
+What percentage of respondants ranked Digital business models as their top 3?,65%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are royalties in the Kenya jurisdiction?",5%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Trinidad & Tobago jurisdiction?",3%/8%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Zambia jurisdiction?",0%/15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, What is the highest rate of Dividends seen?",20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Summarization,Natural Rich PDF
+"What is the current progress in implementation of additional training programs
+for skills required in strategic roles, in terms of the percentage Fully implemented, the percentage Partially implemented/initial stages, and the percentage Plan to implement within 12 months?","Fully implemented: 54%
+Partially implemented/initial stages: 44%
+Plan to implement within 12 months: 1%",dttl-tax-transformation-trends-survey-2023.pdf,Graphical Information Summarization,Natural Rich PDF
+"Provide information about ""Idaho: New law revises effective date on corporate and individual income tax rate reductions""","Effective retroactively to January 1, 2023,
+new law revises legislation enacted last
+year that lowers Idaho’s corporate income
+tax rate from 6% to 5.8% by changing the
+effective date from on and after January
+3, 2023, to on and after January 1, 2023.
+Similarly, effective on and after January 1,
+2023 (rather than January 3, 2023), Idaho
+now implements a flat individual income
+tax rate of 5.8%.
+For additional details, please refer to the
+March 31, 2023 edition of State Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""Illinois: Tax Tribunal affirms penalties in 80/20 company scenario deemed a sham transaction""","Following its 2021 ruling that a taxpayer’s
+affiliate must be included in its combined
+Illinois tax return because the affiliate failed
+to qualify as an “80/20 company” given
+that its ownership in a single-member
+limited liability company was deemed
+to lack economic substance, the Illinois
+Independent Tax Tribunal now holds in
+the same case that the underlying late
+penalties must not be abated.
+For additional details, please refer to the
+March 31, 2023 edition of State Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+"Provide information about ""Michigan: Insurance affiliates qualifying as UBG cannot file a combined return""","In a case involving affiliated insurance
+companies that met Michigan’s corporate
+income tax statutory requirements for
+a unitary business group (UBG), the
+Michigan Tax Tribunal held that pursuant
+to other applicable state statutes, the
+affiliates cannot file as a UBG for Michigan
+premiums and retaliatory taxes and thus
+may not claim certain Michigan insurance-
+related tax credits on a combined tax return.
+For additional details, please refer to
+the February 10, 2023, edition of State
+Tax Matters.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+Provide information about the Hong Kong Financial Secretary delivers 2023–24 budget speech,"On February 22, 2023, Financial Secretary
+of Hong Kong SAR, Paul Chan Mo-po
+delivered the 2023–24 budget speech.
+This is the first budget the Financial
+
+Secretary has prepared for the current-
+term government led by John Lee Ka-chiu,
+
+the Hong Kong SAR Chief Executive.
+Some of the key tax proposals affecting
+businesses include the introduction of
+a patent box regime, clarification on the
+treatment of certain onshore capital
+gains, enhancement of the aircraft leasing
+preferential tax regime, implementation of
+the global minimum tax regime, and the
+introduction of a mechanism to facilitate
+companies to re-domicile to Hong Kong SAR.
+For additional details, please refer to the
+Deloitte tax@hand article dated March
+1, 2023.",us-tax-accounting-for-income-taxes-quarterly-hot-topics-april-2023.pdf,Textual Information Extraction,Natural Rich PDF
+Where is the Tesla Roadster in development?,TBD,tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
+What was the M&P corporate tax rate in the Yukon in 2014?,2.50%,ca-en-tax-corporate-income-tax-rates.pdf,Tabular Information Extraction,Natural Rich PDF
+what is the balance of common stock shares as of three months ended september 2022?,"3,158",tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF

@@ -6,7 +6,6 @@ import pandas as pd
 
 load_dotenv()
 
-
 if (
     os.getenv("OPENAI_API_KEY") is None
     or os.getenv("PINECONE_API_KEY") is None
@@ -26,12 +25,12 @@ if (
 
 runGroundX = False
 runLCPC = False
-runLI = True
+runLI = False
 
-model_name = 'gpt-4-turbo-2024-04-09'
-results_path = 'results'
+model_name = "gpt-4-turbo-2024-04-09"
+results_path = "results"
 
-questions = pd.read_csv("tests/RAGBattle3/tests.csv")
+questions = pd.read_csv("tests/RAGBattle3/tests-all.csv")
 questions.head()
 
 
