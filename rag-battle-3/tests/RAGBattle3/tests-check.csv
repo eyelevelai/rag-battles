@@ -1,4 +1,8 @@
 query,expected_response,context_file,problem_type,context_modality
+What is the estimated cost of capital range for business development companies?,"SOFR+600 to 1,000",us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
+"Based on Withholding Tax Rates in 2023, what are Dividends in the Trinidad & Tobago jurisdiction?",3%/8%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
+What type of tax is imposed on gross receipts of most companies in Bangladesh exceeding BDT 5 million?,"Minimum tax of 0.6% (0.1%, 1%, or 2% for certain types of companies) applies to gross receipts of most companies with gross receipts exceeding BDT 5 million.",dttl-tax-corporate-tax-rates-2023.pdf,Textual Information Extraction,Natural Tabular PDF
+What vehicle models are actively being produced at the Fremont Factory?,"Model S / Model X, Model 3 / Model Y",tesla-10q.pdf,Tabular Information Extraction,Natural Rich PDF
 What is the local branch rate in Togo?,Not enough information,dttl-tax-corporate-tax-rates-2023.pdf,Negative Tabular Extraction,Natural Tabular PDF
 What B2C use cases does embedded finance enable?,"- Buying a house
 - Booking travel
@@ -43,7 +47,6 @@ are Business development companies more or less flexible than Mezzanine funds?,B
 How long does it typically take to settle an estate for very high-net-worth individuals?,"For very high-net-worth individuals, the post-mortem period can range from three to ten or more years, with the average estate taking approximately five years to settle.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
 What are two typical choices estates have for paying estate tax liabilities if they don't have earmarked cash?,"If the estate doesn't have earmarked cash to pay estate tax liabilities, it usually has two choices: borrow funds to pay the taxes or sell assets to generate cash.",us-tax-annual-wealth-planning-guide-103122.pdf,Textual Information Extraction,Natural Rich PDF
 What is the estimated cost of capital range for mezzanine funds?,15-19%,us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
-What is the estimated cost of capital range for business development companies?,"SOFR+600 to 1,000",us-tax-annual-wealth-planning-guide-103122.pdf,Graphical Information Extraction,Natural Rich PDF
 When was RPA a top 5 priority?,2019 and 2020,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Textual Information Extraction,Natural Rich PDF
 What percentage of organizations spend their entire security budget on regulatory security?,2%,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
 How often is physical cyber security outsourced?,15% of the time.,cybersecurity-insights-2023-budgets-benchmarks-financial-services-institutions.pdf,Graphical Information Extraction,Natural Rich PDF
@@ -57,7 +60,6 @@ What is a Tax Identification Number mandatory for in phase 2?,"Transfer of prope
 - Subsection 44(6) of the Act",my-tax-max-2023-corporate-and-other-taxes.pdf,Textual Information Extraction,Natural Rich PDF
 What percentage of respondants ranked Digital business models as their top 3?,65%,gx-deloitte-tax-operations-transformation-trends-survey-2021.pdf,Graphical Information Extraction,Natural Rich PDF
 "Based on Withholding Tax Rates in 2023, what are royalties in the Kenya jurisdiction?",5%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
-"Based on Withholding Tax Rates in 2023, what are Dividends in the Trinidad & Tobago jurisdiction?",3%/8%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
 "Based on Withholding Tax Rates in 2023, what are Dividends in the Zambia jurisdiction?",0%/15%/20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Extraction,Natural Rich PDF
 "Based on Withholding Tax Rates in 2023, What is the highest rate of Dividends seen?",20%,dttl-tax-withholding-tax-rates-2023.pdf,Tabular Information Summarization,Natural Rich PDF
 "What is the current progress in implementation of additional training programs

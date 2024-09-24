@@ -1,7 +1,6 @@
 import os, time
 
 
-
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
@@ -31,7 +30,7 @@ def process_file(dry, partition, file_name, folder, index_names):
 
     if dry_run:
         for index_name in index_names:
-            if index_name != 'rb3-lcpc-partition0':
+            if index_name != "rb3-lcpc-partition0":
                 print(f"\tPinecone [{index_name}] updated")
 
         return
@@ -56,7 +55,7 @@ def process_file(dry, partition, file_name, folder, index_names):
 
     # Update multiple indices
     for index_name in index_names:
-        if index_name != 'rb3-lcpc-partition0':
+        if index_name != "rb3-lcpc-partition0":
             check1 = time.time()
             Pinecone.from_documents(texts, embeddings, index_name=index_name)
 
@@ -68,16 +67,13 @@ def process_file(dry, partition, file_name, folder, index_names):
     )
 
 
-def process_ben(dry, startp, endp, content_dir, partitions):
+def process(dry, startp, endp, content_dir, partitions):
     global dry_run
 
     dry_run = dry
 
     for j, folder in enumerate(partitions):
-        if (
-            (startp < 0 or j >= startp) and
-            (endp < 0 or j <= endp)
-        ):
+        if (startp < 0 or j >= startp) and (endp < 0 or j <= endp):
             nd = f"{content_dir}{folder}"
             index_names = [f"rb3-lcpc-partition{k}" for k in range(j, len(partitions))]
             for file_name in os.listdir(nd):

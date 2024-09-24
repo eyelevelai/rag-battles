@@ -27,13 +27,13 @@ import li.upload as li
 
 runGroundX = False
 runLCPC = False
-runLI = True
+runLIPC = False
 
 
 content_dir = "Partitions/"
 partitions = ["partition0", "partition1", "partition2", "partition3"]
 
-dry_run = True
+dry_run = False
 start_partition = 0
 end_partition = 0
 
@@ -51,9 +51,16 @@ if __name__ == "__main__":
                 zip_ref.extractall(dir)
 
     if runLCPC:
-        lcpc.process_ben(dry_run, start_partition, end_partition, content_dir, partitions)
+        lcpc.process(dry_run, start_partition, end_partition, content_dir, partitions)
 
-    if runLI:
-        ragStrategy = 2
+    if runLIPC:
+        ragStrategy = 1
 
-        li.process(dry_run, ragStrategy, start_partition, end_partition, content_dir, partitions)
+        li.process(
+            dry_run,
+            ragStrategy,
+            start_partition,
+            end_partition,
+            content_dir,
+            partitions,
+        )

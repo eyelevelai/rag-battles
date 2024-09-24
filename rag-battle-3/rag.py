@@ -25,10 +25,17 @@ if (
 
 runGroundX = False
 runLCPC = False
-runLI = False
+runLIPC = False
 
-model_name = "gpt-4-turbo-2024-04-09"
+model_name = "gpt-4o"
 results_path = "results"
+
+gxidx = [
+    PARTION_BUCKET_0,
+    PARTION_BUCKET_1,
+    PARTION_BUCKET_2,
+    PARTION_BUCKET_3,
+]
 
 questions = pd.read_csv("tests/RAGBattle3/tests-all.csv")
 questions.head()
@@ -77,13 +84,6 @@ def doGroundX():
 
     gx_experiment = "13_1_GroundX_naive"
 
-    gxidx = [
-        7802,
-        7980,
-        7981,
-        7982,
-    ]
-
     results = gxrun(model_name, gxidx, questions)
     results.to_csv(f"{results_path}/{gx_experiment}_{model_name}.csv", index=False)
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         functions.append(doGroundX)
     if runLCPC:
         functions.append(doLCPC)
-    if runLI:
+    if runLIPC:
         functions.append(doLI)
 
     if len(functions) > 1:
